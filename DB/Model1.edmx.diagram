@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ffd15a33443546739e0e6c05f342a5e0" Name="Diagram1">
+        <EntityTypeShape EntityType="SportMasterModel.Client" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportMasterModel.Coach" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportMasterModel.Gender" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportMasterModel.SeasonTicket" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportMasterModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportMasterModel.TrainingPlan" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportMasterModel.TypeOfTraining" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportMasterModel.Workout" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="SportMasterModel.FK__Client__Gender__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="SportMasterModel.FK__SeasonTic__Clien__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="SportMasterModel.FK__Coach__Gender__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="SportMasterModel.FK__Workout__Coach__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="SportMasterModel.FK__Workout__tickets__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="SportMasterModel.FK__TypeOfTra__plan___398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="SportMasterModel.FK__Workout__View_tr__48CFD27E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
