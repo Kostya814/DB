@@ -47,7 +47,6 @@
         <ComboBox 
             Name ="genderBox" 
             DisplayMemberPath="title" 
-            Text ="{Binding Gender1}"  
             Grid.Column="1" 
             Grid.Row="4" />
         

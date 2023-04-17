@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 
 namespace DB
@@ -9,18 +10,20 @@ namespace DB
     public partial class MainWindow : Window
     {
         SportMasterEntities db;
+        public ObservableCollection<Client> Clients { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             db = new SportMasterEntities();
-            DataContext = db.Client.ToList();
-
+            Clients = new ObservableCollection<Client>(db.Client);
+            usersList.ItemsSource = Clients;
 
         }
 
         private void CheckCoach(object sender, RoutedEventArgs e)
         {
-
+            Clientxaml clientxaml = new Clientxaml(db);
+            clientxaml.Show();
         }
 
         private void Add(object sender, RoutedEventArgs e)
@@ -31,9 +34,10 @@ namespace DB
                 Client client = win.Client;
                 db.Client.Add(client);
                 db.SaveChanges();
-                
+                Update();
+
             }
-            DataContext = db.Client.ToList();
+            //DataContext = db.Client.ToList();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
@@ -43,8 +47,12 @@ namespace DB
             try {
                 db.Client.Remove(client);
                 db.SaveChanges();
+                Update();
             }
-            catch { }
+            catch 
+            {
+                MessageBox.Show("Ошибка");
+            }
             DataContext = db.Client.ToList();
         }
 
@@ -78,6 +86,12 @@ namespace DB
             }
             DataContext = db.Client.ToList();
 
+        }
+
+        private void Update()
+        {
+            Clients = new ObservableCollection<Client>(db.Client);
+            usersList.ItemsSource = Clients;
         }
     }
 }

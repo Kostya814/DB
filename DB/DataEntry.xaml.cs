@@ -21,19 +21,34 @@ namespace DB
     {
         SportMasterEntities db;
         public Client Client { get; private set; }
-        public DataEntry(SportMasterEntities db, Client client)
+        public Coach Coach { get; private set; }
+        public DataEntry(SportMasterEntities db, object client)
         {
             InitializeComponent();
             this.db = db;
             genderBox.ItemsSource = db.Gender.ToList();
-            Client = client;
-            DataContext = Client;
-            Client.Gender1 = genderBox.SelectedItem as Gender;
-            
+            var a =  client as Client;
+            if (a is Client) 
+            {
+                Client = a;
+                DataContext = Client;
+                
+                
+            }
+            var b = client as Coach;
+            if (b is Coach)
+            {
+                Coach = b;
+                DataContext = Coach;
+                
+            }
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
+            if (Client != null) Client.Gender1 = genderBox.SelectedItem as Gender;
+            if (Coach != null) Coach.Gender1 = genderBox.SelectedItem as Gender;
+
             DialogResult = true;
         }
     }
