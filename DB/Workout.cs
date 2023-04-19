@@ -14,6 +14,8 @@ namespace DB
     
     public partial class Workout
     {
+        Workout()
+        { }
         public int id { get; set; }
         public string Name { get; set; }
         public Nullable<int> tickets { get; set; }

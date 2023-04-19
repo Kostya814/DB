@@ -17,7 +17,6 @@ namespace DB
             db = new SportMasterEntities();
             Clients = new ObservableCollection<Client>(db.Client);
             usersList.ItemsSource = Clients;
-
         }
 
         private void Add(object sender, RoutedEventArgs e)
@@ -111,19 +110,11 @@ namespace DB
             planTraining.Show();
         }
 
-        private void OpenTypeOfTraining(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void OpenWorkout(object sender, RoutedEventArgs e)
         {
-
+            Workout workout = new Workout(db);  
+            workout.Show();
         }
 
-        private void Window_Closed(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }

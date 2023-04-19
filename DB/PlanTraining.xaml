@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DB"
         mc:Ignorable="d"
         Title="Планы тренировок" Height="450" Width="570"
-        Closed="Window_Closed">
+        Closed="Window_Closed" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />

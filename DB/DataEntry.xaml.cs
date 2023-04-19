@@ -31,6 +31,7 @@ namespace DB
             if (a is Client) 
             {
                 Client = a;
+                genderBox.SelectedItem = Client.Gender1;
                 DataContext = Client;
                 
                 
@@ -39,6 +40,7 @@ namespace DB
             if (b is Coach)
             {
                 Coach = b;
+                genderBox.SelectedItem = Coach.Gender1;
                 DataContext = Coach;
                 
             }

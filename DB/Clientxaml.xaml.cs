@@ -55,9 +55,9 @@ namespace DB
 
         private void Edit(object sender, RoutedEventArgs e)
         {
-            Client client = usersList.SelectedItem as Client;
+            Coach client = usersList.SelectedItem as Coach;
             if (client == null) return;
-            DataEntry entry = new DataEntry(db, new Client
+            DataEntry entry = new DataEntry(db, new Coach
             {
                 id = client.id,
                 FirstName = client.FirstName,
@@ -68,7 +68,7 @@ namespace DB
             });
             if (entry.ShowDialog() == true)
             {
-                client = db.Client.Find(entry.Coach.id);
+                client = db.Coach.Find(entry.Coach.id);
                 if (client != null)
                 {
                     client.FirstName = entry.Coach.FirstName;
