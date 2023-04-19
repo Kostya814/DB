@@ -107,7 +107,8 @@ namespace DB
 
         private void OpenTrainingPlan(object sender, RoutedEventArgs e)
         {
-
+            PlanTraining planTraining = new PlanTraining(db);
+            planTraining.Show();
         }
 
         private void OpenTypeOfTraining(object sender, RoutedEventArgs e)
@@ -116,6 +117,11 @@ namespace DB
         }
 
         private void OpenWorkout(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Closed(object sender, System.EventArgs e)
         {
 
         }

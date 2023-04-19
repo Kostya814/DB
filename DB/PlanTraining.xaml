@@ -1,0 +1,64 @@
+﻿<Window x:Class="DB.PlanTraining"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB"
+        mc:Ignorable="d"
+        Title="Планы тренировок" Height="450" Width="570"
+        Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock 
+                VerticalAlignment="Bottom"
+                Text="Тип тренировки" 
+                Margin="10,0,0,0"
+                Grid.Row="0" />
+            <TextBlock 
+                VerticalAlignment="Bottom"
+                Text="План тренировки" 
+                Margin="210,0,0,0"
+                Grid.Row="0" />
+        </StackPanel>
+        <DockPanel Grid.Row="1" Width="600">
+            <ListBox 
+                Width="250"
+                x:Name="planList" 
+                ItemsSource="{Binding}" 
+                DockPanel.Dock="Left" SelectionChanged="planList_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                            Text="{Binding nameType}" 
+                            FontSize="16" />
+                         </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBox 
+                Width="250"
+                HorizontalAlignment="Stretch"
+                TextWrapping="Wrap" 
+                DockPanel.Dock="Right"
+                x:Name="stepsPlanRichBox" DataContext="{Binding}"  
+                Text="{Binding plan_training}" TextChanged="stepsPlanRichBox_TextChanged" ></TextBox>  
+        </DockPanel>
+        
+       
+            <Button 
+                Name="save"
+                Grid.Row="2"
+                Width="200"
+                Content="Сохоанить изменения" 
+                Margin="10" 
+                Click="Save"
+                Visibility="Hidden" />
+       
+    </Grid>
+</Window>
