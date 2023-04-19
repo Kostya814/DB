@@ -37,7 +37,7 @@
         </StackPanel>
         <ListBox 
             x:Name="worksList"  
-            Grid.Row="1" DataContext="{Binding db.Workout}">
+            Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

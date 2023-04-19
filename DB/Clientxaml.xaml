@@ -9,26 +9,81 @@
         Title="Clientxaml" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
             <RowDefinition />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <ListBox x:Name="usersList" ItemsSource="{Binding}">
+        <StackPanel 
+            Orientation="Horizontal" 
+            Grid.Row="0">
+            <TextBlock 
+                VerticalAlignment="Bottom"
+                Text="Имя клиента" 
+                Margin="10,0,0,0"
+                Grid.Row="0" />
+            <TextBlock 
+                VerticalAlignment="Bottom"
+                Text="Отчетсво клиента" 
+                Margin="80,0,0,0"
+                Grid.Row="0" />
+            <TextBlock 
+                VerticalAlignment="Bottom"
+                Text="Фамилия клиента" 
+                Margin="22,0,0,0"
+                Grid.Row="0" />
+            <TextBlock 
+                VerticalAlignment="Bottom"
+                Text="Номер клиента" 
+                Margin="25,0,0,0"
+                Grid.Row="0" />
+            <TextBlock 
+                VerticalAlignment="Bottom"
+                Text="Пол клиента" 
+                Margin="31,0,0,0"
+                Grid.Row="0" />
+
+        </StackPanel>
+        <ListBox x:Name="usersList" ItemsSource="{Binding}" Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
                         <TextBlock 
+                            Grid.Column="0"
                             Text="{Binding FirstName}" 
                             FontSize="16" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="50,0,0,0"
+                            Text="{Binding MidleName}" 
+                            FontSize="16" />
                         <TextBlock 
-                            Margin="3,0,0,0"
+                            Grid.Column="2"
+                            Margin="50,0,0,0"
+                            Text="{Binding LastName}" 
+                            FontSize="16" />
+                        <TextBlock 
+                            Grid.Column="3"
+                            Margin="50,0,0,0"
+                            Text="{Binding  Number}" 
+                            FontSize="16" />
+                        <TextBlock 
+                            Grid.Column="4"
+                            Margin="50,0,0,0"
                             Text="{Binding Gender1.title}" 
                             FontSize="16" />
-                    </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel 
-            Grid.Row="1" 
+            Grid.Row="2" 
             Orientation="Horizontal" 
             HorizontalAlignment="Center">
             <Button Content="Добавить" Margin="10" Click="Add" />
