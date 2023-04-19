@@ -5,13 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DB"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Глаавное окно" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <ListBox x:Name="usersList" >
+        <Menu VerticalAlignment="Top" Height="20">
+            <MenuItem 
+                Header="Таблицы">
+                <MenuItem Header="Coach" Click="OpenCoach"/>
+                <MenuItem Header="Season Ticket" Click="OpenSeasonTicket"/>
+                <MenuItem Header="Training Plan" Click="OpenTrainingPlan"/>
+                <MenuItem Header="Type Of Training" Click="OpenTypeOfTraining"/>
+                <MenuItem Header="Workout" Click="OpenWorkout"/>
+            </MenuItem>
+            
+        </Menu>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock 
+                VerticalAlignment="Bottom"
+                Text="Имя клиента" 
+                Margin="10,0,0,0"
+                Grid.Row="0" />
+             <TextBlock 
+                VerticalAlignment="Bottom"
+                Text="Пол клиента" 
+                Margin="10,0,0,0"
+                Grid.Row="0" />
+        </StackPanel>
+        <ListBox 
+            x:Name="usersList"  
+            Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -19,7 +45,7 @@
                             Text="{Binding FirstName}" 
                             FontSize="16" />
                         <TextBlock 
-                            Margin="3,0,0,0"
+                            Margin="10,0,0,0"
                             Text="{Binding Gender1.title}" 
                             FontSize="16" />
                     </StackPanel>
@@ -27,7 +53,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel 
-            Grid.Row="1" 
+            Grid.Row="2" 
             Orientation="Horizontal" 
             HorizontalAlignment="Center">
             <Button 
@@ -42,10 +68,7 @@
                 Content="Удалить" 
                 Margin="10"  
                 Click="Delete"/>
-            <Button 
-                Content="Посмотреть таблицу с Тренерами" 
-                Margin="10"
-                Click="CheckCoach"/>
+            
             
         </StackPanel>
     </Grid>

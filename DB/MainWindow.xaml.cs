@@ -20,12 +20,6 @@ namespace DB
 
         }
 
-        private void CheckCoach(object sender, RoutedEventArgs e)
-        {
-            Clientxaml clientxaml = new Clientxaml(db);
-            clientxaml.Show();
-        }
-
         private void Add(object sender, RoutedEventArgs e)
         {
             DataEntry win = new DataEntry(db, new Client());
@@ -33,7 +27,11 @@ namespace DB
             {
                 Client client = win.Client;
                 db.Client.Add(client);
-                db.SaveChanges();
+                try 
+                { 
+                    db.SaveChanges(); 
+                }
+                catch { }                             
                 Update();
 
             }
@@ -44,12 +42,13 @@ namespace DB
         {
             Client client = usersList.SelectedItem as Client;
             if (client == null) return;
-            try {
+            try
+            {
                 db.Client.Remove(client);
                 db.SaveChanges();
                 Update();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Ошибка");
             }
@@ -73,7 +72,7 @@ namespace DB
             {
                 client = db.Client.Find(entry.Client.id);
                 if (client != null)
-                { 
+                {
                     client.FirstName = entry.Client.FirstName;
                     client.LastName = entry.Client.LastName;
                     client.MidleName = entry.Client.MidleName;
@@ -82,7 +81,7 @@ namespace DB
                     db.SaveChanges();
                     usersList.Items.Refresh();
                 }
-                    
+
             }
             DataContext = db.Client.ToList();
 
@@ -92,6 +91,33 @@ namespace DB
         {
             Clients = new ObservableCollection<Client>(db.Client);
             usersList.ItemsSource = Clients;
+        }
+
+        private void OpenCoach(object sender, RoutedEventArgs e)
+        {
+            Clientxaml clientxaml = new Clientxaml(db);
+            clientxaml.Show();
+        }
+
+        private void OpenSeasonTicket(object sender, RoutedEventArgs e)
+        {
+            SeasonTicketData ticket = new SeasonTicketData(db);
+            ticket.Show();
+        }
+
+        private void OpenTrainingPlan(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenTypeOfTraining(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenWorkout(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
